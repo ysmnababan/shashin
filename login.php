@@ -1,46 +1,47 @@
 <?php
-    include "koneksi.php";
+include "koneksi.php";
 
-    if($_SERVER["REQUEST_METHOD"] == 'POST'){
-        //retrieve from data
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        
-        //check email exist or not
-        $sql = "SELECT * FROM user_login WHERE email='$email'";
-        $result = $conn->query($sql);
+if ($_SERVER["REQUEST_METHOD"] == 'POST') {
+    //retrieve from data
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-        if($result->num_rows > 0){
-            $row = $result->fetch_assoc();
-            // print_r($row);
-            // echo $row['password'];
-            
+    //check email exist or not
+    $sql = "SELECT * FROM user_login WHERE email='$email'";
+    $result = $conn->query($sql);
 
-            // verify inputted password match or not
-            if (password_verify($password, $row['password'])){
-                session_start();
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        // print_r($row);
+        // echo $row['password'];
 
-                // set session variable
-                $_SESSION['fname'] = $row['fname'];
-                $_SESSION['lname'] = $row['lname'];
 
-                // redirect to home page after login
-                header("Location: index.php");
-            } else {
-                // echo "wrong pwd";
-                $pwd_error = TRUE;
-            }
+        // verify inputted password match or not
+        if (password_verify($password, $row['password'])) {
+            session_start();
+
+            // set session variable
+            $_SESSION['fname'] = $row['fname'];
+            $_SESSION['lname'] = $row['lname'];
+
+            // redirect to home page after login
+            header("Location: index.php");
         } else {
-            // email does not exist, proceed to register
-            $email_error = TRUE;
-            // echo "<script>document.getElementById('email_login').style.display = 'inline';</script>";
-            // echo "email doesn't exist, please register";
+            // echo "wrong pwd";
+            $pwd_error = TRUE;
         }
+    } else {
+        // email does not exist, proceed to register
+        $email_error = TRUE;
+        // echo "<script>document.getElementById('email_login').style.display = 'inline';</script>";
+        // echo "email doesn't exist, please register";
     }
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,16 +50,16 @@
     <link rel="stylesheet" href="./asset/css/bootstrap.min.css">
     <link rel="stylesheet" href="./asset/css/style.css">
 </head>
+
 <body>
-    
-    <section class="bg-light p-3 p-md-4 p-xl-5">
-        <div class="container" >
+    <section class="p-3 p-md-4 p-xl-5 vh-100" style="background-color: #ddd;">
+        <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-xxl-11 ">
-                    <div class="card border-light-subtle shadow-sm">
+                    <div class="card border-dark-subtle shadow-sm">
                         <div class="row g-0">
-                            <div class="col-12 col-md-6">
-                                <img class="rounded-start object-fit-cover" style="height: 800px;" loading="lazy" src="./asset/images/IMG_7146.JPG" alt="Welcome back you've been missed!">
+                            <div class="col-12 col-md-6 overflow-hidden">
+                                <img class="rounded-start object-fit-cover" style="height: 925px;" loading="lazy" src="./asset/images/side_login.JPG" alt="Welcome back you've been missed!">
                             </div>
                             <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
                                 <div class="col-12 col-lg-11 col-xl-10">
@@ -66,8 +67,9 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="mb-5">
-                                                    <div class="text-center mb-4">
-                                                        <img src="./asset/images/download.jpeg" alt="Logo" width="100" >
+                                                    <div class="border-bottom w-100 text-center mb-4 text-warning " style="font-size:70px;">
+                                                        <img src="./asset/images/shashin_icon.png" alt="Logo" width="60" class="mb-3">
+                                                        <strong>SHASHIN</strong>
                                                     </div>
                                                     <h4 class="text-center">Welcome back you've been missed!</h4>
                                                 </div>
@@ -99,7 +101,7 @@
                                                     <div class="form-floating mb-3">
                                                         <input type="password" class="form-control" name="password" id="password" value="" placeholder="Password" required>
                                                         <label for="password" class="form-label">Password</label>
-                                                        <div class="error_msg" id="pwd_login" style="display : <?php echo isset($pwd_error) && $pwd_error ? 'inline': 'none'?>">Password incorrect!</div>
+                                                        <div class="error_msg" id="pwd_login" style="display : <?php echo isset($pwd_error) && $pwd_error ? 'inline' : 'none' ?>">Password incorrect!</div>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
@@ -112,7 +114,7 @@
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="d-grid">
-                                                        <button class="btn btn-dark btn-lg" type="submit">Log in now</button>
+                                                        <button class="btn btn-warning btn-lg" type="submit">Log in now</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -140,10 +142,10 @@
             document.getElementById("email_login").style.display = 'none';
         })
 
-        document.getElementById("password").addEventListener("input", function(event){
+        document.getElementById("password").addEventListener("input", function(event) {
             document.getElementById("pwd_login").style.display = 'none';
         });
-
     </script>
 </body>
+
 </html>

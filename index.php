@@ -200,17 +200,14 @@ if (isset($_SESSION['fname'])) {
     </header>
 
     <main>
-        <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+        <div id="myCarousel" class="carousel slide mb-6 aspect-ratio-16x9" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <rect width="100%" height="100%" fill="var(--bs-primary-color)" />
-                    </svg>
+                <div class="carousel-item active" style="background-image:url('./asset/images/lens.jpg');">
                     <div class="container">
                         <div class="carousel-caption text-start">
                             <h1>Best quality and affordable.</h1>
@@ -219,10 +216,7 @@ if (isset($_SESSION['fname'])) {
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-                    </svg>
+                <div class="carousel-item" style="background-image:url('./asset/images/camera.jpg');">
                     <div class="container">
                         <div class="carousel-caption">
                             <h1>Rent at a reasonable price.</h1>
@@ -231,11 +225,8 @@ if (isset($_SESSION['fname'])) {
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-                    </svg>
-                    <div class="container">
+                <div class="carousel-item" style="background-image:url('./asset/images/strap.jpg');">
+                    <div class="container" >
                         <div class="carousel-caption text-end">
                             <h1>More than 50 years of experience.</h1>
                             <p>Best camera rental shop in Indonesia and has handled so many clients throughout Indonesia</p>

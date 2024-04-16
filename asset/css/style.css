@@ -1,0 +1,13 @@
+.body {
+  margin:0;
+  padding-bottom:0;
+}
+
+.bd {
+  border: 1px solid red;
+}
+
+.error_msg {
+  color: red;
+  font-size: 0.8em;
+}

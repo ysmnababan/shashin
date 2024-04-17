@@ -254,7 +254,7 @@ if (isset($_SESSION['fname'])) {
                     PHOTOGRAPHY CLASSES
                 </strong>
                 <br />
-                For customers who want to learn photography, we provide Photography Workshops from basic to advanced levels. Some photography classes are paid, and some are free. In addition, to master the camera/lens, JPC customers can enjoy free Photography Classes supported by well-known brands such as Fujifilm, Nikon, Olympus, Panasonic, Sony, etc.
+                For customers who want to learn photography, we provide Photography Workshops from basic to advanced levels. Some photography classes are paid, and some are free. In addition, to master the camera/lens, SHASHIN customers can enjoy free Photography Classes supported by well-known brands such as Fujifilm, Nikon, Olympus, Panasonic, Sony, etc.
                 <br />
                 <br />
                 <strong>
@@ -287,7 +287,7 @@ if (isset($_SESSION['fname'])) {
                     <h5 class="border-bottom pb-3 text-body-emphasis">ABOUT US</h5>
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2"><a href="./about_us.php" class="nav-link p-0 text-body-secondary">About SHASHIN</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Why Shop at SHASHIN</a></li>
+                        <li class="nav-item mb-2"><a href="./about_us.php" class="nav-link p-0 text-body-secondary">Why Shop at SHASHIN</a></li>
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Direction</a></li>
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
                         <li class="nav-item mb-2"><a href="./galery.php" class="nav-link p-0 text-body-secondary">Gallery</a></li>

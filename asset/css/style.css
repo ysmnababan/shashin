@@ -35,3 +35,30 @@
   z-index: -1; */
   display: none;
 }
+
+/* Ensure the image fills the left half of the card */
+.card-img-half {
+  width: 100%;
+  height: auto;
+  position: relative; /* Make the image container relatively positioned */
+}
+
+/* Style for the semi-transparent overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black color */
+}
+
+/* Style for the text on top of the image */
+.contact-us-text {
+  position: absolute;
+  font-size: 20px;
+  top: 35%;
+  margin-left: 10%;
+  color: white; /* Set text color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
+}

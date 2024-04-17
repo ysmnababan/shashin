@@ -200,14 +200,31 @@ if (isset($_SESSION['fname'])) {
     </header>
 
     <main>
-        <section class="p-3 p-md-4 p-xl-5" style="background-color: #ddd;">
+        <section class="p-3 p-md-4 p-xl-5 mt-1" style="background-color: #ddd;">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12 col-xxl-11 ">
                         <div class="card border-dark-subtle shadow-sm">
                             <div class="row g-0">
-                                <div class="col-12 col-md-6 overflow-hidden">
-                                    <img class="rounded-start object-fit-cover" style="height: 800px;" loading="lazy" src="./asset/images/side_register.JPG" alt="Register">
+                                <div class="col-12 col-md-6">
+                                    <img class="card-img rounded-start card-img-half" loading="lazy" src="./asset/images/contact_us.JPG" alt="Register">
+                                    <div class="overlay"></div>
+                                    
+                                    <div class="contact-us-text">
+                                        <h3 class="border-bottom pb-3">GET IN TOUCH WITH US</h3>
+                                        <p class="">
+                                            Jl. Jalan Santai No 19, Jakarta Pusat
+                                            <br>
+                                            (021)0809-89999
+                                            <br>
+                                        </p>
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item mb-2 "><span class='opacity-50'> Monday-Friday:</span> 08.00 - 19.00</li>
+                                            <li class="nav-item mb-2 "><span class='opacity-50'> Saturday-Sunday:</span> 08.00 - 18.00</li>
+                                            <li class="nav-item mb-2 mt-2">Whatsapp:</li>
+                                            <li class="nav-item mb-2 ">08036871321</li>
+                                        </ul>
+                                    </div>
                                 </div>
                                 <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
                                     <div class="col-12">
@@ -216,7 +233,6 @@ if (isset($_SESSION['fname'])) {
                                                 <div class="col-12">
                                                     <div class="mb-5">
                                                         <div class="border-bottom w-100 text-center mb-4" style="font-size:70px;">
-                                                            <!-- <img src="./asset/images/shashin_icon.png" alt="Logo" width="60" class="mb-3"> -->
                                                             <strong>Contact Us</strong>
                                                         </div>
                                                         <h5 class="text-center">Feel free to contact us</h5>
@@ -224,7 +240,6 @@ if (isset($_SESSION['fname'])) {
                                                 </div>
                                             </div>
                                             <form method="POST" id="myForm">
-
                                                 <div class="row gy-3 overflow-hidden">
                                                     <div class="col-12">
                                                         <div class="row">
@@ -240,47 +255,29 @@ if (isset($_SESSION['fname'])) {
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="form-floating mb-2">
-                                                            <input type="email" class="form-control" name="email" id="email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" placeholder="Email" required>
+                                                            <input type="email" class="form-control" name="email" id="email" value="" placeholder="Email" required>
                                                             <label for="email" class="form-label">Email</label>
-                                                            <div class="error_msg" id="email_error" style="display: <?php echo isset($emailError) && $emailError ? 'inline' : 'none'; ?>">Email already used!</div>
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="form-floating mb-2">
-                                                            <input type="password" class="form-control" name="password" id="password" value="" placeholder="Password" minlength='3' required>
-                                                            <label for="password" class="form-label">Password</label>
+                                                            <input type="tel" class="form-control" name="phoneNumber" id="phoneNumber" value="" placeholder="Phone Number" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
+                                                            <label for="phoneNumber" class="form-label">Phone Number</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="form-floating mb-2">
-                                                            <input type="password" class="form-control" name="password_conf" id="password_conf" value="" placeholder="Confirm Password" required>
-                                                            <label for="password_conf" class="form-label">Confirm Password</label>
-                                                            <div class="error_msg" id="pwd_error" style="display: <?php echo isset($pwdError) && $pwdError ? 'inline' : 'none'; ?>">Password does not match!</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value="" name="remember_me" id="remember_me" required>
-                                                            <label class="form-check-label text-secondary" for="remember_me">
-                                                                I accept the Terms of Use & Privacy Policy.
-                                                            </label>
+                                                            <textarea rows="5" class="form-control" style="height: 200px;" name="message" id="message" value="" placeholder="Message" required></textarea>
+                                                            <label for="message" class="form-label">Enter Your Message</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="d-grid">
-                                                            <button class="btn btn-warning btn-lg" type="submit" name="register">Register</button>
+                                                            <button class="btn btn-warning btn-lg" type="submit" name="register">Send Us Message</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </form>
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-center mt-1">
-                                                        <a href="./login.php" class="link-secondary text-decoration-none">Already have and account?</a>
-                                                        <!-- <a href="#!" class="link-secondary text-decoration-none">Forgot password</a> -->
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>

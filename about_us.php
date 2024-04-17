@@ -175,15 +175,15 @@ if (isset($_SESSION['fname'])) {
                                 <a class='nav-link' href='./register.php'>Register</a>
                                 </li>
                             </ul>";
-                    } 
-                    
+                    }
+
                     ?>
 
                     <?php if (isset($_SESSION['fname'])) {
-                            echo '
+                        echo '
                             <ul class="navbar-nav me-5 mb-2 mb-md-0 mt-2">
                                 <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-warning" href="#" data-bs-toggle="dropdown" aria-expanded="false">Hello, ' . $_SESSION["fname"] .'</a>
+                                <a class="nav-link dropdown-toggle text-warning" href="#" data-bs-toggle="dropdown" aria-expanded="false">Hello, ' . $_SESSION["fname"] . '</a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#">Update Profile</a></li>
                                     <li><a class="dropdown-item" href="#">Transaksi</a></li>
@@ -192,7 +192,7 @@ if (isset($_SESSION['fname'])) {
                                 </li>
                             </ul>
                             ';
-                        }
+                    }
                     ?>
                 </div>
             </div>
@@ -200,151 +200,82 @@ if (isset($_SESSION['fname'])) {
     </header>
 
     <main>
-        <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-                    </svg>
-                    <div class="container">
-                        <div class="carousel-caption text-start">
-                            <h1>Example headline.</h1>
-                            <p class="opacity-75">Some representative placeholder content for the first slide of the carousel.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-                    </svg>
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1>Another example headline.</h1>
-                            <p>Some representative placeholder content for the second slide of the carousel.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-                    </svg>
-                    <div class="container">
-                        <div class="carousel-caption text-end">
-                            <h1>One more for good measure.</h1>
-                            <p>Some representative placeholder content for the third slide of this carousel.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-
-
-        <!-- Marketing messaging and featurettes
-        ================================================== -->
-        <!-- Wrap the rest of the page in another container to center all the content. -->
-
-        <div class="container marketing">
-
-            <!-- Three columns of text below the carousel -->
-            <div class="row">
-                <div class="col-lg-4">
-                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-                    </svg>
-                    <h2 class="fw-normal">Heading</h2>
-                    <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
-                    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-                <div class="col-lg-4">
-                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-                    </svg>
-                    <h2 class="fw-normal">Heading</h2>
-                    <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
-                    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-                <div class="col-lg-4">
-                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-                    </svg>
-                    <h2 class="fw-normal">Heading</h2>
-                    <p>And lastly this, the third column of representative placeholder content.</p>
-                    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-            </div><!-- /.row -->
-
-
-            <!-- START THE FEATURETTES -->
-
-            <hr class="featurette-divider">
-
-            <div class="row featurette">
-                <div class="col-md-7">
-                    <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span class="text-body-secondary">It’ll blow your mind.</span></h2>
-                    <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
-                </div>
-                <div class="col-md-5">
-                    <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="var(--bs-secondary-bg)" /><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
-                    </svg>
+        <section class="container mt-5">
+            <h2 class="text-center">OUR STORE</h2><br>
+            <img src="./asset/images/our_store.jpg" width="100%">
+        </section>
+        <section class="container mt-5 padding-top-0x padding-bottom-0x">
+            <div style="text-align: justify;">
+                SHASHIN RENTAL Store is the best camera rental shop in Indonesia and the most trusted. 
+                <br />
+                The word 'SHASHIN' itself comes from Japanese, which means photo or picture.
+                <br /> 
+                SHASHIN RENTAL Store is here to provide the best service for those of you who need premium quality camera rental, diverse options, and affordable prices without having to buy.
+                The comfortable SHASHIN store is located at Jl. Jalan Santai No 19, Jakarta Pusat. Equipped with a cafe where your family can relax while waiting for you to shop. You can also shop 24 hours through our website.
+                <br />
+                <br />
+                <strong>
+                    DEMO UNITS AVAILABLE FOR YOU TO TRY
+                </strong>
+                <br />
+                At the SHASHIN store, demo units are available for almost all types of cameras and lenses that you can try before you buy.
+                <br />
+                <br />
+                <strong>
+                    GUARANTEED PRODUCTS
+                </strong>
+                <br />
+                Providing quality photographic needs, guaranteed ORIGINAL and with OFFICIAL WARRANTY.
+                <br />
+                <br />
+                <strong>
+                    EXCELLENT SERVICE
+                </strong>
+                </small>
+                <br />
+                The service and consultation provided are very friendly, quality, and professional. We will always provide product recommendations that suit your needs.
+                <br />
+                <br />
+                <strong>
+                    SECURE and FAST DELIVERY
+                </strong>
+                <br />
+                We process and ship your orders on the same day. Except if payments received after 17:00 will be processed the next working day. Our shipping packaging is very secure, and all courier shipments are covered by Loss Insurance. For reservations and delivery orders, please contact our CS via phone/WhatsApp listed on the shashin.com website.
+                <br />
+                <br />
+                <strong>
+                    EASY, DIVERSE PAYMENT METHODS and 0% INSTALLMENTS AVAILABLE
+                </strong>
+                <br />
+                Shopping online or offline is now very easy. 0% installment facilities are available for up to 2 months both online and offline, as well as installment facilities without a credit card. 0% Credit Card Installments and Installments Without Credit Cards in our offline store are supported by Tokopedia.
+                <br />
+                <br />
+                <strong>
+                    PHOTOGRAPHY CLASSES
+                </strong>
+                <br />
+                For customers who want to learn photography, we provide Photography Workshops from basic to advanced levels. Some photography classes are paid, and some are free. In addition, to master the camera/lens, JPC customers can enjoy free Photography Classes supported by well-known brands such as Fujifilm, Nikon, Olympus, Panasonic, Sony, etc.
+                <br />
+                <br />
+                <strong>
+                    FIND US in SOCIAL MEDIA
+                </strong>
+                <br />
+                <div class="d-flex flex-column flex-sm-row justify-content-between py-4 mb-4">
+                    <ul class="list-unstyled d-flex">
+                        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg fill="#000" class="bi" width="24" height="24">
+                                    <use xlink:href="#twitter" />
+                                </svg></a></li>
+                        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg fill="#000" class="bi" width="24" height="24">
+                                    <use xlink:href="#instagram" />
+                                </svg></a></li>
+                        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg fill="#000" class="bi" width="24" height="24">
+                                    <use xlink:href="#facebook" />
+                                </svg></a></li>
+                    </ul>
                 </div>
             </div>
-
-            <hr class="featurette-divider">
-
-            <div class="row featurette">
-                <div class="col-md-7 order-md-2">
-                    <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span class="text-body-secondary">See for yourself.</span></h2>
-                    <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
-                </div>
-                <div class="col-md-5 order-md-1">
-                    <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="var(--bs-secondary-bg)" /><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
-                    </svg>
-                </div>
-            </div>
-
-            <hr class="featurette-divider">
-
-            <div class="row featurette">
-                <div class="col-md-7">
-                    <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span class="text-body-secondary">Checkmate.</span></h2>
-                    <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
-                </div>
-                <div class="col-md-5">
-                    <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="var(--bs-secondary-bg)" /><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
-                    </svg>
-                </div>
-            </div>
-
-            <hr class="featurette-divider">
-
-            <!-- /END THE FEATURETTES -->
-
-        </div><!-- /.container -->
+        </section>
     </main>
 
 
@@ -412,4 +343,5 @@ if (isset($_SESSION['fname'])) {
     </div>
 
 </body>
+
 </html>

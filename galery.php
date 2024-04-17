@@ -15,7 +15,7 @@ if (isset($_SESSION['fname'])) {
 
 
 <!DOCTYPE html>
-<html lang="en"  lang="en" class="h-100" data-bs-theme="auto">
+<html lang="en" lang="en" class="h-100" data-bs-theme="auto">
 
 <head>
     <meta charset="UTF-8">
@@ -87,15 +87,15 @@ if (isset($_SESSION['fname'])) {
                                 <a class='nav-link' href='./register.php'>Register</a>
                                 </li>
                             </ul>";
-                    } 
-                    
+                    }
+
                     ?>
 
                     <?php if (isset($_SESSION['fname'])) {
-                            echo '
+                        echo '
                             <ul class="navbar-nav me-5 mb-2 mb-md-0 mt-2">
                                 <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-warning" href="#" data-bs-toggle="dropdown" aria-expanded="false">Hello, ' . $_SESSION["fname"] .'</a>
+                                <a class="nav-link dropdown-toggle text-warning" href="#" data-bs-toggle="dropdown" aria-expanded="false">Hello, ' . $_SESSION["fname"] . '</a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#">Update Profile</a></li>
                                     <li><a class="dropdown-item" href="#">Transaksi</a></li>
@@ -104,54 +104,97 @@ if (isset($_SESSION['fname'])) {
                                 </li>
                             </ul>
                             ';
-                        }
+                    }
                     ?>
                 </div>
             </div>
         </nav>
     </header>
 
-    <main class="container bd mt-5 pt-5">
+    <main class="container mt-5">
+        <h1>Galery</h1>
+        <h5>Please enjoy some of our client work using our products.</h5>
         <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="8" aria-label="Slide 9"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="9" aria-label="Slide 10"></button>
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-                    </svg>
+                <div class="carousel-item active" style="height:50rem; background-image:url('./asset/images/colin-horn.webp');">
                     <div class="container">
                         <div class="carousel-caption text-start">
-                            <h1>Example headline.</h1>
-                            <p class="opacity-75">Some representative placeholder content for the first slide of the carousel.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+                            <p class="opacity-75">Photo taken by Colin Horn.</p>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-                    </svg>
+                <div class="carousel-item" style="height:50rem; background-image:url('./asset/images/daniel-olah.webp');">
                     <div class="container">
-                        <div class="carousel-caption">
-                            <h1>Another example headline.</h1>
-                            <p>Some representative placeholder content for the second slide of the carousel.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+                        <div class="carousel-caption text-start">
+                            <p class="opacity-75">Photo taken by Daniel Olah.</p>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-                    </svg>
+                <div class="carousel-item" style="height:50rem; background-image:url('./asset/images/erik-mclean.webp');">
                     <div class="container">
-                        <div class="carousel-caption text-end">
-                            <h1>One more for good measure.</h1>
-                            <p>Some representative placeholder content for the third slide of this carousel.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+                        <div class="carousel-caption text-start">
+                            <p class="opacity-75">Photo taken by Erik McLean.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item" style="height:50rem; background-image:url('./asset/images/jake-blucker.webp');">
+                    <div class="container">
+                        <div class="carousel-caption text-start">
+                            <p class="opacity-75">Photo taken by Jake Blucker.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item" style="height:50rem; background-image:url('./asset/images/jonatan-pie.webp');">
+                    <div class="container">
+                        <div class="carousel-caption text-start">
+                            <p class="opacity-75">Photo taken by Jonatan Pie.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item" style="height:50rem; background-image:url('./asset/images/joshua-sortino.webp');">
+                    <div class="container">
+                        <div class="carousel-caption text-start">
+                            <p class="opacity-75">Photo taken by Joshua Sortino.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item" style="height:50rem; background-image:url('./asset/images/mar-bustos.webp');">
+                    <div class="container">
+                        <div class="carousel-caption text-start">
+                            <p class="opacity-75">Photo taken by Mar Bustos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item" style="height:50rem; background-image:url('./asset/images/stefan-rodriguez.webp');">
+                    <div class="container">
+                        <div class="carousel-caption text-start">
+                            <p class="opacity-75">Photo taken by Stefan Rodriguez.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item" style="height:50rem; background-image:url('./asset/images/waranont-joe.webp');">
+                    <div class="container">
+                        <div class="carousel-caption text-start">
+                            <p class="opacity-75">Photo taken by Waranont Joe.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item" style="height:50rem; background-image:url('./asset/images/william-warby.webp');">
+                    <div class="container">
+                        <div class="carousel-caption text-start">
+                            <p class="opacity-75">Photo taken by William Warby.</p>
                         </div>
                     </div>
                 </div>
@@ -232,4 +275,5 @@ if (isset($_SESSION['fname'])) {
     </div>
 
 </body>
+
 </html>

@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
             // set session variable
             $_SESSION['fname'] = $row['fname'];
             $_SESSION['lname'] = $row['lname'];
+            $_SESSION['email'] = $row['email'];
 
             // redirect to home page after login
             header("Location: index.php");

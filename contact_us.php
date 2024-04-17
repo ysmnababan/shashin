@@ -3,13 +3,26 @@ include "koneksi.php";
 
 session_start();
 if (isset($_SESSION['fname'])) {
-    // echo $_SESSION['fname'];
-    // echo $_SESSION['lname'];
+    // $fname = $_SESSION['fname'];
+    // $lname = $_SESSION['lname'];
+    // $email = $_SESSION['email'];
     echo "<script> console.log('here');</script>";
-    // echo "<script>alert('new session started');</script>";
-    // session_unset();
-} else {
-    // echo "wowowo";
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // retrieve form data
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $email = $_POST['email'];
+    $phone = $_POST['phoneNumber'];
+    $message = $_POST['message'];
+
+    $sql = "INSERT INTO `contact_us` (fname, lname, email, phone, message) VALUES ('$fname', '$lname', '$email', '$phone', '$message')";
+    if ($conn->query($sql) === TRUE) {
+        echo "<script> console.log('Contact us data inputted!');</script>";    
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
 }
 ?>
 
@@ -22,16 +35,6 @@ if (isset($_SESSION['fname'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <link rel="stylesheet" href="./asset/css/style.css">
-
-    <!-- Latest compiled and minified CSS -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
-    <!-- <link rel="stylesheet" href="./asset/css/bootstrap.min.css"> -->
-
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
-
-
-    <!-- <link rel="stylesheet" href="./asset/css/style.css"> -->
     <link rel="stylesheet" href="./asset/css/bootstrap.min.css" />
     <script src="./asset/js/bootstrap.bundle.min.js"></script>
 
@@ -209,7 +212,7 @@ if (isset($_SESSION['fname'])) {
                                 <div class="col-12 col-md-6">
                                     <img class="card-img rounded-start card-img-half" loading="lazy" src="./asset/images/contact_us.JPG" alt="Register">
                                     <div class="overlay"></div>
-                                    
+
                                     <div class="contact-us-text">
                                         <h3 class="border-bottom pb-3">GET IN TOUCH WITH US</h3>
                                         <p class="">
@@ -244,18 +247,18 @@ if (isset($_SESSION['fname'])) {
                                                     <div class="col-12">
                                                         <div class="row">
                                                             <div class="form-floating mb-2 col-6">
-                                                                <input type="text" class="form-control" name="fname" id="fname" value="" placeholder="First Name" required>
+                                                                <input type="text" class="form-control" name="fname" id="fname" value="<?php echo isset($_SESSION['fname']) ? $_SESSION['fname'] : '' ?>" placeholder="First Name" required>
                                                                 <label for="fname" class="form-label ps-4">First Name</label>
                                                             </div>
                                                             <div class="form-floating mb-2 col-6">
-                                                                <input type="text" class="form-control" name="lname" id="lname" value="" placeholder="Last Name" required>
+                                                                <input type="text" class="form-control" name="lname" id="lname" value="<?php echo isset($_SESSION['lname']) ? $_SESSION['lname'] : '' ?>" placeholder="Last Name" required>
                                                                 <label for="lname" class="form-label ps-4">Last Name</label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="form-floating mb-2">
-                                                            <input type="email" class="form-control" name="email" id="email" value="" placeholder="Email" required>
+                                                            <input type="email" class="form-control" name="email" id="email" value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : '' ?>" placeholder="Email" required>
                                                             <label for="email" class="form-label">Email</label>
                                                         </div>
                                                     </div>
@@ -273,7 +276,7 @@ if (isset($_SESSION['fname'])) {
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="d-grid">
-                                                            <button class="btn btn-warning btn-lg" type="submit" name="register">Send Us Message</button>
+                                                            <button class="btn btn-warning btn-lg" type="submit" name="contact_us">Send Us Message</button>
                                                         </div>
                                                     </div>
                                                 </div>

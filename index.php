@@ -15,7 +15,7 @@ if (isset($_SESSION['fname'])) {
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100" data-bs-theme="auto">
 
 <head>
     <meta charset="UTF-8">
@@ -118,7 +118,7 @@ if (isset($_SESSION['fname'])) {
     <link href="./asset/css/carousel.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="d-flex flex-column h-100">
 
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
         <symbol id="bootstrap" viewBox="0 0 118 94">

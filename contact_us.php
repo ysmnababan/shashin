@@ -15,7 +15,7 @@ if (isset($_SESSION['fname'])) {
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100" data-bs-theme="auto">
 
 <head>
     <meta charset="UTF-8">
@@ -118,7 +118,7 @@ if (isset($_SESSION['fname'])) {
     <link href="./asset/css/carousel.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="d-flex flex-column h-100">
 
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
         <symbol id="bootstrap" viewBox="0 0 118 94">
@@ -175,15 +175,15 @@ if (isset($_SESSION['fname'])) {
                                 <a class='nav-link' href='./register.php'>Register</a>
                                 </li>
                             </ul>";
-                    } 
-                    
+                    }
+
                     ?>
 
                     <?php if (isset($_SESSION['fname'])) {
-                            echo '
+                        echo '
                             <ul class="navbar-nav me-5 mb-2 mb-md-0 mt-2">
                                 <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-warning" href="#" data-bs-toggle="dropdown" aria-expanded="false">Hello, ' . $_SESSION["fname"] .'</a>
+                                <a class="nav-link dropdown-toggle text-warning" href="#" data-bs-toggle="dropdown" aria-expanded="false">Hello, ' . $_SESSION["fname"] . '</a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#">Update Profile</a></li>
                                     <li><a class="dropdown-item" href="#">Transaksi</a></li>
@@ -192,7 +192,7 @@ if (isset($_SESSION['fname'])) {
                                 </li>
                             </ul>
                             ';
-                        }
+                    }
                     ?>
                 </div>
             </div>
@@ -200,6 +200,96 @@ if (isset($_SESSION['fname'])) {
     </header>
 
     <main>
+        <section class="p-3 p-md-4 p-xl-5" style="background-color: #ddd;">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-xxl-11 ">
+                        <div class="card border-dark-subtle shadow-sm">
+                            <div class="row g-0">
+                                <div class="col-12 col-md-6 overflow-hidden">
+                                    <img class="rounded-start object-fit-cover" style="height: 800px;" loading="lazy" src="./asset/images/side_register.JPG" alt="Register">
+                                </div>
+                                <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
+                                    <div class="col-12">
+                                        <div class="card-body p-3 p-md-4 p-xl-5">
+                                            <div class="row ">
+                                                <div class="col-12">
+                                                    <div class="mb-5">
+                                                        <div class="border-bottom w-100 text-center mb-4" style="font-size:70px;">
+                                                            <!-- <img src="./asset/images/shashin_icon.png" alt="Logo" width="60" class="mb-3"> -->
+                                                            <strong>Contact Us</strong>
+                                                        </div>
+                                                        <h5 class="text-center">Feel free to contact us</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <form method="POST" id="myForm">
+
+                                                <div class="row gy-3 overflow-hidden">
+                                                    <div class="col-12">
+                                                        <div class="row">
+                                                            <div class="form-floating mb-2 col-6">
+                                                                <input type="text" class="form-control" name="fname" id="fname" value="" placeholder="First Name" required>
+                                                                <label for="fname" class="form-label ps-4">First Name</label>
+                                                            </div>
+                                                            <div class="form-floating mb-2 col-6">
+                                                                <input type="text" class="form-control" name="lname" id="lname" value="" placeholder="Last Name" required>
+                                                                <label for="lname" class="form-label ps-4">Last Name</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="form-floating mb-2">
+                                                            <input type="email" class="form-control" name="email" id="email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" placeholder="Email" required>
+                                                            <label for="email" class="form-label">Email</label>
+                                                            <div class="error_msg" id="email_error" style="display: <?php echo isset($emailError) && $emailError ? 'inline' : 'none'; ?>">Email already used!</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="form-floating mb-2">
+                                                            <input type="password" class="form-control" name="password" id="password" value="" placeholder="Password" minlength='3' required>
+                                                            <label for="password" class="form-label">Password</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="form-floating mb-2">
+                                                            <input type="password" class="form-control" name="password_conf" id="password_conf" value="" placeholder="Confirm Password" required>
+                                                            <label for="password_conf" class="form-label">Confirm Password</label>
+                                                            <div class="error_msg" id="pwd_error" style="display: <?php echo isset($pwdError) && $pwdError ? 'inline' : 'none'; ?>">Password does not match!</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value="" name="remember_me" id="remember_me" required>
+                                                            <label class="form-check-label text-secondary" for="remember_me">
+                                                                I accept the Terms of Use & Privacy Policy.
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="d-grid">
+                                                            <button class="btn btn-warning btn-lg" type="submit" name="register">Register</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-center mt-1">
+                                                        <a href="./login.php" class="link-secondary text-decoration-none">Already have and account?</a>
+                                                        <!-- <a href="#!" class="link-secondary text-decoration-none">Forgot password</a> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
 
@@ -267,4 +357,5 @@ if (isset($_SESSION['fname'])) {
     </div>
 
 </body>
+
 </html>

@@ -37,8 +37,6 @@ if (isset($_SESSION['fname'])) {
 </head>
 
 <body class="d-flex flex-column h-100">
-
-
     <header data-bs-theme="dark">
         <!-- Fixed navbar -->
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">

@@ -71,7 +71,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-
     <section class="p-3 p-md-4 p-xl-5 vh-100" style="background-color: #ddd;">
         <div class="container">
             <div class="row justify-content-center">

@@ -97,8 +97,8 @@ if (isset($_SESSION['fname'])) {
                                 <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-warning" href="#" data-bs-toggle="dropdown" aria-expanded="false">Hello, ' . $_SESSION["fname"] . '</a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Update Profile</a></li>
-                                    <li><a class="dropdown-item" href="#">Transaksi</a></li>
+                                    <li><a class="dropdown-item" href="./update_profile.php">Update Profile</a></li>
+                                    <li><a class="dropdown-item" href="#">Transaction</a></li>
                                     <li><a class="dropdown-item" href="./logout.php">Log Out</a></li>
                                 </ul>
                                 </li>
@@ -112,8 +112,8 @@ if (isset($_SESSION['fname'])) {
     </header>
 
     <main class="container mt-5">
-        <h1>Galery</h1>
-        <h5>Please enjoy some of our client work using our products.</h5>
+        <h2 class="text-center">Galery</h2>
+        <p class="lead text-center">Please enjoy some of our client work using our products.</p>
         <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>

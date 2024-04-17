@@ -97,8 +97,8 @@ if (isset($_SESSION['fname'])) {
                                 <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-warning" href="#" data-bs-toggle="dropdown" aria-expanded="false">Hello, ' . $_SESSION["fname"] . '</a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Update Profile</a></li>
-                                    <li><a class="dropdown-item" href="#">Transaksi</a></li>
+                                    <li><a class="dropdown-item" href="./update_profile.php">Update Profile</a></li>
+                                    <li><a class="dropdown-item" href="#">Transaction</a></li>
                                     <li><a class="dropdown-item" href="./logout.php">Log Out</a></li>
                                 </ul>
                                 </li>
@@ -113,8 +113,8 @@ if (isset($_SESSION['fname'])) {
 
     <main class="p-5">
         <div class="container_fluid p-3" style="height: auto;">
-            <h3>Try Your Luck!!</h3>
-            <p>Click on of the card below, and get your discount. Good Luck!!</p>
+            <h2 class="text-center">Try Your Luck!!</h2>
+            <p class="lead text-center">Click on of the card below, and get your discount. Good Luck!!</p>
             <div class="row justify-content-around mb-3 gx-0" >
                 <div class="col-1 flip-card" onclick="flipCard(this,1)">
                     <div class="flip-card-inner">

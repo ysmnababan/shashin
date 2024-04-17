@@ -185,9 +185,9 @@ if (isset($_SESSION['fname'])) {
                                 <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-warning" href="#" data-bs-toggle="dropdown" aria-expanded="false">Hello, ' . $_SESSION["fname"] . '</a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Update Profile</a></li>
-                                    <li><a class="dropdown-item" href="#">Transaksi</a></li>
-                                    <li><a class="dropdown-item" href="./logout.php">Log Out</a></li>
+                                <li><a class="dropdown-item" href="./update_profile.php">Update Profile</a></li>
+                                <li><a class="dropdown-item" href="#">Transaction</a></li>
+                                <li><a class="dropdown-item" href="./logout.php">Log Out</a></li>
                                 </ul>
                                 </li>
                             </ul>
@@ -206,10 +206,10 @@ if (isset($_SESSION['fname'])) {
         </section>
         <section class="container mt-5 padding-top-0x padding-bottom-0x">
             <div style="text-align: justify;">
-                SHASHIN RENTAL Store is the best camera rental shop in Indonesia and the most trusted. 
+                SHASHIN RENTAL Store is the best camera rental shop in Indonesia and the most trusted.
                 <br />
                 The word 'SHASHIN' itself comes from Japanese, which means photo or picture.
-                <br /> 
+                <br />
                 SHASHIN RENTAL Store is here to provide the best service for those of you who need premium quality camera rental, diverse options, and affordable prices without having to buy.
                 The comfortable SHASHIN store is located at Jl. Jalan Santai No 19, Jakarta Pusat. Equipped with a cafe where your family can relax while waiting for you to shop. You can also shop 24 hours through our website.
                 <br />

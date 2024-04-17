@@ -6,6 +6,7 @@ if (isset($_SESSION['fname'])) {
     // $fname = $_SESSION['fname'];
     // $lname = $_SESSION['lname'];
     // $email = $_SESSION['email'];
+    // echo $_SESSION['email'];
     echo "<script> console.log('here');</script>";
 }
 
@@ -210,7 +211,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class="card border-dark-subtle shadow-sm">
                             <div class="row g-0">
                                 <div class="col-12 col-md-6">
-                                    <img class="card-img rounded-start card-img-half" loading="lazy" src="./asset/images/contact_us.JPG" alt="Register">
+                                    <img class="card-img rounded-start card-img-half" loading="lazy" src="./asset/images/contact_us.webp" alt="Register">
                                     <div class="overlay"></div>
 
                                     <div class="contact-us-text">

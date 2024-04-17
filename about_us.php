@@ -202,7 +202,7 @@ if (isset($_SESSION['fname'])) {
     <main>
         <section class="container mt-5">
             <h2 class="text-center">OUR STORE</h2><br>
-            <img src="./asset/images/our_store.jpg" width="100%">
+            <img src="./asset/images/our_store.webp" width="100%">
         </section>
         <section class="container mt-5 padding-top-0x padding-bottom-0x">
             <div style="text-align: justify;">

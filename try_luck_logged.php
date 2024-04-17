@@ -112,14 +112,14 @@ if (isset($_SESSION['fname'])) {
     </header>
 
     <main class="p-5">
-        <div class="container_fluid p-3 bd" style="height: auto;">
+        <div class="container_fluid p-3" style="height: auto;">
             <h3>Try Your Luck!!</h3>
             <p>Click on of the card below, and get your discount. Good Luck!!</p>
             <div class="row justify-content-around mb-3 gx-0" >
                 <div class="col-1 flip-card" onclick="flipCard(this,1)">
                     <div class="flip-card-inner">
                         <div class="flip-card-front rounded">
-                            <img src="./asset/images/1.jpg" alt="Avatar" style="width: 100%; " class="rounded">
+                            <img src="./asset/images/1.webp" alt="Avatar" style="width: 100%; " class="rounded">
                         </div>
                         <div class="flip-card-back rounded" style="height: 100%;">
                             <h4 class="header_try" style="display: none;">YOU GOT</h4>
@@ -131,7 +131,7 @@ if (isset($_SESSION['fname'])) {
                 <div class="col-1 flip-card" onclick="flipCard(this,2)">
                     <div class="flip-card-inner">
                         <div class="flip-card-front rounded">
-                            <img src="./asset/images/2.jpg" alt="Avatar" style="width: 100%;" class="rounded">
+                            <img src="./asset/images/2.webp" alt="Avatar" style="width: 100%;" class="rounded">
                         </div>
                         <div class="flip-card-back rounded">
                             <h4 class="header_try" style="display: none;">YOU GOT</h4>
@@ -143,7 +143,7 @@ if (isset($_SESSION['fname'])) {
                 <div class="col-1 flip-card" onclick="flipCard(this,3)">
                     <div class="flip-card-inner">
                         <div class="flip-card-front rounded">
-                            <img src="./asset/images/3.jpg" alt="Avatar" style="width: 100%;" class="rounded">
+                            <img src="./asset/images/3.webp" alt="Avatar" style="width: 100%;" class="rounded">
                         </div>
                         <div class="flip-card-back rounded">
                             <h4 class="header_try" style="display: none;">YOU GOT</h4>
@@ -155,7 +155,7 @@ if (isset($_SESSION['fname'])) {
                 <div class="col-1 flip-card" onclick="flipCard(this,4)">
                     <div class="flip-card-inner">
                         <div class="flip-card-front rounded">
-                            <img src="./asset/images/4.jpg" alt="Avatar" style="width: 100%;" class="rounded">
+                            <img src="./asset/images/4.webp" alt="Avatar" style="width: 100%;" class="rounded">
                         </div>
                         <div class="flip-card-back rounded">
                             <h4 class="header_try" style="display: none;">YOU GOT</h4>
@@ -167,7 +167,7 @@ if (isset($_SESSION['fname'])) {
                 <div class="col-1 flip-card" onclick="flipCard(this,5)">
                     <div class="flip-card-inner">
                         <div class="flip-card-front rounded">
-                            <img src="./asset/images/5.jpg" alt="Avatar" style="width: 100%;" class="rounded">
+                            <img src="./asset/images/5.webp" alt="Avatar" style="width: 100%;" class="rounded">
                         </div>
                         <div class="flip-card-back rounded">
                             <h4 class="header_try" style="display: none;">YOU GOT</h4>

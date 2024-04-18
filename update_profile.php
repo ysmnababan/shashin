@@ -29,7 +29,8 @@ if ($result_user->num_rows > 0) {
     $user_data['cc_no']     = $d['cc_no'];
     $user_data['cc_exp']    = $d['cc_exp'];
     $user_data['cvv']       = $d['cvv'];
-
+    $user_data['voucher']    = $d['voucher'];
+    
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -207,7 +208,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <p class="lead">Update your profile for completing transaction</p>
         </div>
 
-        <div class="row g-5 bd ">
+        <div class="row g-5">
             <!-- <div class="col-md-5 col-lg-4 order-md-last bd">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
                     <span class="text-primary">Your cart</span>
@@ -413,13 +414,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     <h4 class="mb-3">Voucher</h4>
                     <?php if (isset($user_data['voucher'])) {
-                        echo "<p>YOUR VOUCHER IS: </p>" . $user_data['voucher'];
+                        echo "<h5 class='mb-5 p-3'>YOUR VOUCHER IS: " . $user_data['voucher']. "</h5>";
                     } else {
                         echo "
                         <p class='mb-5'>You don't have any Voucher yet. <a href='./try_luck_logged.php' class='mb-5'>Try your luck</a></p>";
                     } ?>
 
-                    <button class="w-100 btn btn-primary btn-lg" type="submit">Save profile</button>
+                    <button class="w-100 btn btn-warning btn-lg" type="submit">Save profile</button>
                 </form>
             </div>
         </div>

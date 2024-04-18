@@ -2,13 +2,28 @@
 include "koneksi.php";
 
 session_start();
-if (isset($_SESSION['fname'])) {
-    // echo $_SESSION['fname'];
-    // echo $_SESSION['lname'];
-    echo "<script> console.log('here');</script>";
-    // echo "<script>alert('new session started');</script>";
-    // session_unset();
+
+$id = $_SESSION['id'];
+
+
+$sql_user = "SELECT * from user_profile WHERE user_id='$id'";
+$result_user = $conn->query($sql_user);
+$message ="inputted";
+if ($result_user->num_rows > 0) {
+    // user profile has already been updated once
+
+    $data = $result_user->fetch_assoc();
+    echo "<script>console.log('here22')</script>";
+
+    // if 'voucher' is empty then run the voucher random program
+    // else, 'voucher' already have value, hidden the card
+
+    $voucher = $data['voucher'];
 } else {
+    // user in user_profile table doesn't have any link to user_login table
+    echo "<script>console.log('here11')</script>";
+    $message ="never";
+    // then insert data into table 
 }
 ?>
 
@@ -112,10 +127,10 @@ if (isset($_SESSION['fname'])) {
     </header>
 
     <main class="p-5">
-        <div class="container_fluid p-3" style="height: auto;">
+        <div class="container_fluid p-3" style="display: <?php echo !isset($voucher) || $voucher === NULL ? 'inline' : 'none' ?>">
             <h2 class="text-center">Try Your Luck!!</h2>
             <p class="lead text-center">Click on of the card below, and get your discount. Good Luck!!</p>
-            <div class="row justify-content-around mb-3 gx-0" >
+            <div class="row justify-content-around mb-3 gx-0">
                 <div class="col-1 flip-card" onclick="flipCard(this,1)">
                     <div class="flip-card-inner">
                         <div class="flip-card-front rounded">
@@ -177,6 +192,9 @@ if (isset($_SESSION['fname'])) {
                     </div>
                 </div>
             </div> </br>
+        </div>
+        <div class="container_fluid p-3 text-center vh-50" style="display: <?php echo isset($voucher) && $voucher ? 'block' : 'none' ?>;">
+            <h1 style="margin: 135px 0;">YOU GOT <?php echo $voucher; ?> VOUCHER DISCOUNT</h1>
         </div>
     </main>
 
@@ -244,6 +262,33 @@ if (isset($_SESSION['fname'])) {
     </div>
 
     <script>
+        function uploadPOST(data1, data2) {
+            // Data you want to send to PHP
+
+            // Create an AJAX request
+            var xhr = new XMLHttpRequest();
+
+            // Configure the request
+            xhr.open("POST", "update_voucher_db.php", true);
+
+            // Set the content type
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            // Define the callback function
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                    // Request was successful, do something if needed
+                    console.log(xhr.responseText); // Response from PHP
+                }
+            };
+
+            // Construct the request body with both variables
+            var requestBody = "new_voucher=" + encodeURIComponent(data1) + "&is_define=" + encodeURIComponent(data2);
+
+            // Send the request with the data
+            xhr.send(requestBody);
+        }
+
         function flipCard(card, order) {
             // Array containing the numbers
             const numbers = [5, 10, 15, 20, 25];
@@ -269,23 +314,32 @@ if (isset($_SESSION['fname'])) {
 
             card_arr = document.getElementsByClassName("try_card");
             header_arr = document.getElementsByClassName("header_try");
-            console.log(card_arr);
-            for (idx in card_arr){
+            // console.log(card_arr);
+            for (idx in card_arr) {
                 card_arr[idx].textContent = selectedNumbers[idx] + "%";
-                if (idx==order-1){
-                    card_arr[idx].style.color ="red";
-                    header_arr[idx].style.display="inline";
+                if (idx == order - 1) {
+                    card_arr[idx].style.color = "red";
+                    header_arr[idx].style.display = "inline";
                 }
             }
 
             flip = document.getElementsByClassName("flip-card");
-            console.log(flip);
+            // console.log(flip);
 
             for (elmt of flip) {
                 elmt.classList.toggle('flipped');
-            }
 
+                // disable onclick event
+                elmt.onclick = null;
+            }
+            // console.log('<?php echo $message;?>');
+            uploadPOST(generated_discount + "%", '<?php echo $message;?>');
         }
+    </script>
+
+    <!-- for debugging -->
+    <script>
+        console.log("<?php echo $id; ?>");
     </script>
 
 </body>

@@ -39,6 +39,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['lname'] = $lname;
                 $_SESSION['email'] = $email;
 
+                // set id session by query select from database first
+                $sqlid = "SELECT id from user_login WHERE email='$email'";
+                $result = $conn->query($sqlid);
+                $row = $result->fetch_assoc();
+                $_SESSION['id'] = $row['id'];
+
                 //redirect to home page
                 header("Location: index.php");
                 exit;

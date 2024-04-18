@@ -2,77 +2,12 @@
 include "koneksi.php";
 
 session_start();
-$session = false;
-
-// create list of product
-$specs = array(
-    "200D Mark II",
-    "1500D",
-    "XE4",
-    "X-Pro3",
-    "D6",
-    "D780",
-    "Alpha A7 II",
-    "Alpha A6400",
-    "X1D II 50C Medium Format Mirrorless",
-    "X2D 100C Medium Format Camera"
-);
-
-// Brands data
-$brands = array(
-    "Canon",
-    "Canon",
-    "Fujifilm",
-    "Fujifilm",
-    "Nikon",
-    "Nikon",
-    "Sony",
-    "Sony",
-    "Hasselblad",
-    "Hasselblad"
-);
-
-// Corresponding img sources
-$img_sources = array(
-    "canon_eos200d.webp",
-    "canon_eos1500d.webp",
-    "Fujifilm_XE4_1.jpg",
-    "fujifilm_xpro3.webp",
-    "Nikon_D6.jpg",
-    "nikon_d780.jpg",
-    "xsony_a7_mark_ii.jpg",
-    "xa6400.webp",
-    "hasselblad_x1d.jpg",
-    "hasselblad_x2d.jpg"
-);
-
-// Function to generate random rating
-function generateRandomRating()
-{
-    return rand(1, 5); // Generates a random number between 1 and 5
-}
-
-// Create array of objects
-$cameras = array();
-foreach ($specs as $index => $spec) {
-    $camera = (object) array(
-        "brand" => $brands[$index],
-        "spec" => $spec,
-        "price" => rand(500, 3000), // Example random price between 500 and 3000
-        "rating" => generateRandomRating(), // Generate random rating
-        "img_source" => $img_sources[$index]
-    );
-    $cameras[] = $camera;
-}
-
-
 if (isset($_SESSION['fname'])) {
     echo $_SESSION['fname'];
     // echo $_SESSION['lname'];
     echo "<script> console.log('here');</script>";
     // echo "<script>alert('new session started');</script>";
     // session_unset();
-    $session = TRUE;
 } else {
     echo "wowowo";
 }
@@ -184,9 +119,9 @@ if (isset($_SESSION['fname'])) {
                     <h1 class="">Product</h1>
                     <p class="lead text-body-secondary">Looking for best deal? Check our best product</p>
                     <p>
-                        <a href="./product.php" class="btn btn-warning my-2">Camera</a>
+                        <a href="./product.php" class="btn btn-secondary my-2">Camera</a>
                         <a href="./product_lens.php" class="btn btn-secondary my-2">Lens</a>
-                        <a href="./product_accessories.php" class="btn btn-secondary my-2">Accessories</a>
+                        <a href="./product_accessories.php" class="btn btn-warning my-2">Accessories</a>
                     </p>
                 </div>
             </div>
@@ -195,59 +130,58 @@ if (isset($_SESSION['fname'])) {
         <div class="album py-5 bg-body-tertiary">
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    <?php foreach ($cameras as $i => $camera) { ?>
-                        <!-- item 1 -->
-                        <div class="col product_item">
-                            <div class="card shadow-sm">
-                                <img src="./asset/images/product/<?php echo $camera->img_source; ?>">
-                                <div class="card-body">
-                                    <h5 class="card-text brand mb-0 "><?php echo $camera->brand; ?></h5>
-                                    <p class="card-text mb-0"><?php echo $camera->spec; ?></p>
-                                    <p class="card-text">$ <span class="price"><?php echo $camera->price; ?></span> / day</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="alert('Feature disabled');">View</button>
-                                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-                                            onclick="rentFunction('<?php echo htmlentities(json_encode($camera)); ?>');" <?php echo !isset($_SESSION['fname']) ? 'disabled' : ''?>>Rent now</button>
-                                        </div>
-                                        <small class="text-body-secondary">Rating: <?php echo $camera->rating; ?> / 5</small>
+                    <!-- item 1 -->
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="./asset/images/menu_camera.webp">
+                            <div class="card-body">
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Rent now</button>
                                     </div>
+                                    <small class="text-body-secondary">Rating: 5 / 5</small>
                                 </div>
                             </div>
                         </div>
-                    <?php } ?>
-                    <!-- end of item -->
-                </div>
-            </div>
-        </div>
+                    </div>
+                    
+                    <!-- item 1 -->
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="./asset/images/menu_camera.webp">
+                            <div class="card-body">
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Book</button>
+                                    </div>
+                                    <small class="text-body-secondary">Rating: 5 / 5</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Book camera</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div>How many days ?
-                            <div class="container w-50 ms-0 mt-1 mb-3">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <button class="btn btn-outline-secondary" type="button" id="decreaseButton">-</button>
+                    <!-- item 1 -->
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="./asset/images/menu_camera.webp">
+                            <div class="card-body">
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Book</button>
                                     </div>
-                                    <input type="text" class="form-control" id="valueInput" value="0">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" type="button" id="increaseButton">+</button>
-                                    </div>
+                                    <small class="text-body-secondary">Rating: 5 / 5</small>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-warning" onclick="updateTransaction()">Book Now</button>
-                    </div>
+
+                    <!-- end of item -->
                 </div>
             </div>
         </div>
@@ -318,25 +252,6 @@ if (isset($_SESSION['fname'])) {
         </footer>
     </div>
 
-    <script>
-        function rentFunction(param) {
-            var isSession = <?php echo json_encode($session); ?>
-            // console.log(isSession);
-            var camera = JSON.parse(param);
-            console.log("why");
-            //check is already logged in or not
-            if (isSession === true) {
-                // already logged in
-                // display rent transaction
-                console.log(camera);
-            } else {
-                alert('Please log in to your account');
-                console.log(param);
-            }
-        }
-    </script>
-
-    <script src="./asset/js/inc_dec_button.js"></script>
 </body>
 
 </html>

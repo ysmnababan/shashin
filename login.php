@@ -96,14 +96,14 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
                                                     <div class="form-floating mb-3">
                                                         <input type="email" class="form-control" name="email" id="email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>" placeholder="name@example.com" required>
                                                         <label for="email" class="form-label">Email</label>
-                                                        <div class="error_msg" id=email_login style="display : <?php echo isset($email_error) && $email_error ? 'inline' : 'none' ?>">Email does not exist. Please create your account.</div>
+                                                        <div class="error_msg" id=email_login style="display : <?php echo isset($email_error) && $email_error ? 'inline' : 'none' ?>">Email or password incorrect!</div>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-floating mb-3">
                                                         <input type="password" class="form-control" name="password" id="password" value="" placeholder="Password" required>
                                                         <label for="password" class="form-label">Password</label>
-                                                        <div class="error_msg" id="pwd_login" style="display : <?php echo isset($pwd_error) && $pwd_error ? 'inline' : 'none' ?>">Password incorrect!</div>
+                                                        <div class="error_msg" id="pwd_login" style="display : <?php echo isset($pwd_error) && $pwd_error ? 'inline' : 'none' ?>">Email or password incorrect!</div>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">

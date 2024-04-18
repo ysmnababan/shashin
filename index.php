@@ -176,13 +176,13 @@ if (isset($_SESSION['fname'])) {
                     <img src="./asset/images/menu_lens.webp" class="w-50">
                     <h2 class="fw-normal">Lens</h2>
                     <p>Check your favorite Lens</p>
-                    <p><a class="btn btn-warning" href="./product.php">View details &raquo;</a></p>
+                    <p><a class="btn btn-warning" href="./product_lens.php">View details &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
                     <img src="./asset/images/menu_accessories.webp" height="184px">
                     <h2 class="fw-normal">Accessories</h2>
                     <p>Check your camera accessories</p>
-                    <p><a class="btn btn-warning" href="./product.php">View details &raquo;</a></p>
+                    <p><a class="btn btn-warning" href="./product_accessories.php">View details &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
             </div><!-- /.row -->
 

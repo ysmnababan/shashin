@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="card border-dark-subtle shadow-sm">
                         <div class="row g-0">
                             <div class="col-12 col-md-6 overflow-hidden">
-                                <img class="rounded-start object-fit-cover" style="height: 925px;" loading="lazy" src="./asset/images/side_register.webp" alt="Register">
+                                <img class="rounded-start object-fit-cover" style="height: 825px;" loading="lazy" src="./asset/images/side_register.webp" alt="Register">
                             </div>
                             <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
                                 <div class="col-12">

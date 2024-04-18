@@ -52,6 +52,7 @@ if (isset($_SESSION['fname'])) {
         <!-- Fixed navbar -->
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div class="container-fluid">
+                <img src="./asset/images/shashin_icon.png" height="50px" class="me-2"/>
                 <a class="navbar-brand text-warning" style="font-size: 30px;" href="./index.php">SHASHIN</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -128,70 +129,70 @@ if (isset($_SESSION['fname'])) {
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="9" aria-label="Slide 10"></button>
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item active" style="height:50rem; background-image:url('./asset/images/colin-horn.webp');">
+                <div class="carousel-item active" style="height:45rem; background-image:url('./asset/images/colin-horn.webp');">
                     <div class="container">
                         <div class="carousel-caption text-start">
                             <p class="opacity-75">Photo taken by Colin Horn.</p>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item" style="height:50rem; background-image:url('./asset/images/daniel-olah.webp');">
+                <div class="carousel-item" style="height:45rem; background-image:url('./asset/images/daniel-olah.webp');">
                     <div class="container">
                         <div class="carousel-caption text-start">
                             <p class="opacity-75">Photo taken by Daniel Olah.</p>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item" style="height:50rem; background-image:url('./asset/images/erik-mclean.webp');">
+                <div class="carousel-item" style="height:45rem; background-image:url('./asset/images/erik-mclean.webp');">
                     <div class="container">
                         <div class="carousel-caption text-start">
                             <p class="opacity-75">Photo taken by Erik McLean.</p>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item" style="height:50rem; background-image:url('./asset/images/jake-blucker.webp');">
+                <div class="carousel-item" style="height:45rem; background-image:url('./asset/images/jake-blucker.webp');">
                     <div class="container">
                         <div class="carousel-caption text-start">
                             <p class="opacity-75">Photo taken by Jake Blucker.</p>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item" style="height:50rem; background-image:url('./asset/images/jonatan-pie.webp');">
+                <div class="carousel-item" style="height:45rem; background-image:url('./asset/images/jonatan-pie.webp');">
                     <div class="container">
                         <div class="carousel-caption text-start">
                             <p class="opacity-75">Photo taken by Jonatan Pie.</p>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item" style="height:50rem; background-image:url('./asset/images/joshua-sortino.webp');">
+                <div class="carousel-item" style="height:45rem; background-image:url('./asset/images/joshua-sortino.webp');">
                     <div class="container">
                         <div class="carousel-caption text-start">
                             <p class="opacity-75">Photo taken by Joshua Sortino.</p>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item" style="height:50rem; background-image:url('./asset/images/mar-bustos.webp');">
+                <div class="carousel-item" style="height:45rem; background-image:url('./asset/images/mar-bustos.webp');">
                     <div class="container">
                         <div class="carousel-caption text-start">
                             <p class="opacity-75">Photo taken by Mar Bustos.</p>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item" style="height:50rem; background-image:url('./asset/images/stefan-rodriguez.webp');">
+                <div class="carousel-item" style="height:45rem; background-image:url('./asset/images/stefan-rodriguez.webp');">
                     <div class="container">
                         <div class="carousel-caption text-start">
                             <p class="opacity-75">Photo taken by Stefan Rodriguez.</p>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item" style="height:50rem; background-image:url('./asset/images/waranont-joe.webp');">
+                <div class="carousel-item" style="height:45rem; background-image:url('./asset/images/waranont-joe.webp');">
                     <div class="container">
                         <div class="carousel-caption text-start">
                             <p class="opacity-75">Photo taken by Waranont Joe.</p>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item" style="height:50rem; background-image:url('./asset/images/william-warby.webp');">
+                <div class="carousel-item" style="height:45rem; background-image:url('./asset/images/william-warby.webp');">
                     <div class="container">
                         <div class="carousel-caption text-start">
                             <p class="opacity-75">Photo taken by William Warby.</p>

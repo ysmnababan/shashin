@@ -67,6 +67,7 @@ if ($result_user->num_rows > 0) {
         <!-- Fixed navbar -->
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div class="container-fluid">
+                <img src="./asset/images/shashin_icon.png" height="50px" class="me-2"/>
                 <a class="navbar-brand text-warning" style="font-size: 30px;" href="./index.php">SHASHIN</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

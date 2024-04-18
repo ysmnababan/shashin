@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
     decreaseButton.addEventListener("click", function() {
       var value = parseInt(valueInput.value);
-      if (value > 0) {
+      if (value > 1) {
         valueInput.value = value - 1;
       }
     });

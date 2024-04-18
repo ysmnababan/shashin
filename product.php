@@ -76,6 +76,7 @@ if (isset($_SESSION['fname'])) {
 } else {
     echo "wowowo";
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -199,18 +200,17 @@ if (isset($_SESSION['fname'])) {
                         <!-- item 1 -->
                         <div class="col product_item">
                             <div class="card shadow-sm">
-                                <img src="./asset/images/product/<?php echo $camera->img_source; ?>">
+                                <img src="./asset/images/product/<?php echo $camera->img_source; ?>" class="post_img">
                                 <div class="card-body">
-                                    <h5 class="card-text brand mb-0 "><?php echo $camera->brand; ?></h5>
-                                    <p class="card-text mb-0"><?php echo $camera->spec; ?></p>
-                                    <p class="card-text">$ <span class="price"><?php echo $camera->price; ?></span> / day</p>
+                                    <h5 class="card-text brand mb-0 post_brand"><?php echo $camera->brand; ?></h5>
+                                    <p class="card-text mb-0 post_spec"><?php echo $camera->spec; ?></p>
+                                    <p class="card-text">$ <span class="post_price"><?php echo $camera->price; ?></span> / day</p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-sm btn-outline-secondary" onclick="alert('Feature disabled');">View</button>
-                                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-                                            onclick="rentFunction('<?php echo htmlentities(json_encode($camera)); ?>');" <?php echo !isset($_SESSION['fname']) ? 'disabled' : ''?>>Rent now</button>
+                                            <button type="button" id="modalTriggerButton" class="btn btn-sm btn-outline-secondary modalButton" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="rentFunction('<?php echo $i; ?>');">Rent now</button>
                                         </div>
-                                        <small class="text-body-secondary">Rating: <?php echo $camera->rating; ?> / 5</small>
+                                        <small class="text-body-secondary">Rating: <span class="post_rating"><?php echo $camera->rating; ?></span> / 5</small>
                                     </div>
                                 </div>
                             </div>
@@ -236,7 +236,7 @@ if (isset($_SESSION['fname'])) {
                                     <div class="input-group-prepend">
                                         <button class="btn btn-outline-secondary" type="button" id="decreaseButton">-</button>
                                     </div>
-                                    <input type="text" class="form-control" id="valueInput" value="0">
+                                    <input type="text" class="form-control" id="valueInput" value="1">
                                     <div class="input-group-append">
                                         <button class="btn btn-outline-secondary" type="button" id="increaseButton">+</button>
                                     </div>
@@ -251,6 +251,9 @@ if (isset($_SESSION['fname'])) {
                 </div>
             </div>
         </div>
+
+        <!-- hidden input container -->
+        <input type="hidden" id="tempCameraId" value='-1'>
     </main>
 
     <div class="b-example-divider"></div>
@@ -319,23 +322,91 @@ if (isset($_SESSION['fname'])) {
     </div>
 
     <script>
+        var isSession = <?php echo json_encode($session); ?>
+
+        if (isSession === false) {
+            // Disable modal trigger button
+            modaltrigger = document.getElementsByClassName('modalButton');
+            for (el of modaltrigger) {
+                el.removeAttribute('data-bs-toggle');
+                el.removeAttribute('data-bs-target');
+            }
+            console.log(modaltrigger);
+        }
+
         function rentFunction(param) {
             var isSession = <?php echo json_encode($session); ?>
             // console.log(isSession);
-            var camera = JSON.parse(param);
-            console.log("why");
+            // var camera = JSON.parse(param);
+
+            console.log(param);
             //check is already logged in or not
             if (isSession === true) {
                 // already logged in
-                // display rent transaction
-                console.log(camera);
+
+                // store id of clicked camera to hidden input
+                document.getElementById("tempCameraId").value = param;
+
             } else {
                 alert('Please log in to your account');
                 console.log(param);
             }
         }
-    </script>
 
+
+        function updateTransaction() {
+            var daycount = document.getElementById("valueInput").value;
+            console.log(daycount);
+
+            var id = document.getElementById("tempCameraId").value;
+            // console.log(id);
+            // console.log('id');
+            // console.log(document.getElementsByClassName("post_img")[id].src);
+            uploadPOSTTransaction("camera",
+                document.getElementsByClassName("post_brand")[id].textContent,
+                document.getElementsByClassName("post_spec")[id].textContent,
+                document.getElementsByClassName("post_price")[id].textContent,
+                document.getElementsByClassName("post_rating")[id].textContent,
+                document.getElementsByClassName("post_img")[id].src,
+                daycount,
+                '2024-04-18');
+            window.location.href = "./product.php";
+        }
+
+        function uploadPOSTTransaction(data1, data2, data3, data4, data5, data6, data7, data8) {
+            // Data you want to send to PHP
+            console.log(data2);
+            console.log("--");
+            // Create an AJAX request
+            var xhr = new XMLHttpRequest();
+
+            // Configure the request
+            xhr.open("POST", "update_transaction_db.php", true);
+
+            // Set the content type
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            // Define the callback function
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                    // Request was successful, do something if needed
+                    console.log(xhr.responseText); // Response from PHP
+                }
+            };
+
+            // Construct the request body with both variables
+            var requestBody = "product_type=" + encodeURIComponent(data1) +
+                "&brand=" + encodeURIComponent(data2) +
+                "&spec=" + encodeURIComponent(data3) +
+                "&price=" + encodeURIComponent(data4) +
+                "&rating=" + encodeURIComponent(data5) +
+                "&img=" + encodeURIComponent(data6) +
+                "&daycount=" + encodeURIComponent(data7) +
+                "&rentdate=" + encodeURIComponent(data8);
+            // Send the request with the data
+            xhr.send(requestBody);
+        }
+    </script>
     <script src="./asset/js/inc_dec_button.js"></script>
 </body>
 

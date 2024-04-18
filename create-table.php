@@ -37,6 +37,20 @@
         CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES user_login(id)
     )";
 
+    $sql4 = "CREATE TABLE IF NOT EXISTS user_transaction (
+        transaction_id INT AUTO_INCREMENT PRIMARY KEY,
+        product_type VARCHAR(20),
+        brand VARCHAR(10),
+        spec VARCHAR(50),
+        price INT,
+        rating INT,
+        img VARCHAR(50),
+        daycount INT,
+        rentdate TIMESTAMP,
+        user_id INT NOT NULL,
+        CONSTRAINT fk_usertransaction_id FOREIGN KEY (user_id) REFERENCES user_login(id)
+    )";
+
     // login check 
     if ($conn->query($sql1) === TRUE){
         echo "mantap";
@@ -51,6 +65,12 @@
     }
 
     if ($conn->query($sql3) === TRUE){
+        echo "mantap";
+    } else {
+        echo "table 'user_login' gagal dibuat" .$conn->error;
+    }
+
+    if ($conn->query($sql4) === TRUE){
         echo "mantap";
     } else {
         echo "table 'user_login' gagal dibuat" .$conn->error;

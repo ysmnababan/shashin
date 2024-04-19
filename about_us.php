@@ -98,7 +98,7 @@ if (isset($_SESSION['fname'])) {
                                 <a class="nav-link dropdown-toggle text-warning" href="#" data-bs-toggle="dropdown" aria-expanded="false">Hello, ' . $_SESSION["fname"] . '</a>
                                 <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="./update_profile.php">Update Profile</a></li>
-                                <li><a class="dropdown-item" href="#">Transaction</a></li>
+                                <li><a class="dropdown-item" href="./transaction.php">Transaction</a></li>
                                 <li><a class="dropdown-item" href="./logout.php">Log Out</a></li>
                                 </ul>
                                 </li>

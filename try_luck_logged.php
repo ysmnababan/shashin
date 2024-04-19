@@ -29,7 +29,7 @@ if ($result_user->num_rows > 0) {
 
 
 <!DOCTYPE html>
-<html lang="en" lang="en" class="h-100" data-bs-theme="auto">
+<html lang="en" class="h-100" data-bs-theme="auto">
 
 <head>
     <meta charset="UTF-8">
@@ -37,7 +37,7 @@ if ($result_user->num_rows > 0) {
     <title>Try Your Luck</title>
     <link rel="stylesheet" href="./asset/css/style.css">
     <link rel="stylesheet" href="./asset/css/flip_card.css">
-    <link rel="stylesheet" href="./asset/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./asset/css/bootstrap.min.css">
     <script src="./asset/js/bootstrap.bundle.min.js"></script>
 
 
@@ -114,7 +114,7 @@ if ($result_user->num_rows > 0) {
                                 <a class="nav-link dropdown-toggle text-warning" href="#" data-bs-toggle="dropdown" aria-expanded="false">Hello, ' . $_SESSION["fname"] . '</a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="./update_profile.php">Update Profile</a></li>
-                                    <li><a class="dropdown-item" href="#">Transaction</a></li>
+                                    <li><a class="dropdown-item" href="./transaction.php">Transaction</a></li>
                                     <li><a class="dropdown-item" href="./logout.php">Log Out</a></li>
                                 </ul>
                                 </li>
@@ -211,7 +211,7 @@ if ($result_user->num_rows > 0) {
                         <li class="nav-item mb-2"><a href="./about_us.php" class="nav-link p-0 text-body-secondary">Why Shop at SHASHIN</a></li>
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Direction</a></li>
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Gallery</a></li>
+                        <li class="nav-item mb-2"><a href="./galery.php" class="nav-link p-0 text-body-secondary">Gallery</a></li>
                     </ul>
                 </div>
 

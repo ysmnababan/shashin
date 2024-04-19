@@ -2,14 +2,41 @@
 include "koneksi.php";
 
 session_start();
-if (isset($_SESSION['fname'])) {
-    // echo $_SESSION['fname'];
-    // echo $_SESSION['lname'];
-    echo "<script> console.log('here');</script>";
-    // echo "<script>alert('new session started');</script>";
-    // session_unset();
+
+$id = $_SESSION['id'];
+
+// check voucher if it is exist or not 
+$sql_user = "SELECT * from user_profile WHERE user_id='$id'";
+$result_user = $conn->query($sql_user);
+$message ="inputted";
+if ($result_user->num_rows > 0) {
+    // user profile has already been updated once
+
+    $data = $result_user->fetch_assoc();
+    echo "<script>console.log('here22')</script>";
+
+    $voucher = $data['voucher'];
 } else {
-    // echo "wowowo";
+    // user in user_profile table doesn't have any link to user_login table
+    echo "<script>console.log('here11')</script>";
+    $message ="never";
+    $voucher = 'empty';
+}
+
+// check user has any transaction history
+$sql_tr = "SELECT * FROM user_transaction WHERE user_id='$id'";
+$result_tr = $conn->query($sql_tr);
+if ($result_tr->num_rows > 0) {
+    echo "wow";
+    //count sum of price from transaction
+    $sql_sum = "SELECT sum(price) as hasil FROM user_transaction WHERE user_id = '$id'";
+    $temp = $conn->query($sql_sum);
+    $total = $temp->fetch_assoc();
+    print_r($total);
+    // echo "<div> " . substr($voucher, 0, -1) . "</div>";
+    $isTr = true;
+} else {
+    $isTr = false;
 }
 ?>
 
@@ -20,10 +47,12 @@ if (isset($_SESSION['fname'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Try Your Luck</title>
     <link rel="stylesheet" href="./asset/css/style.css">
-    <link rel="stylesheet" href="./asset/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./asset/css/flip_card.css">
+    <link rel="stylesheet" href="./asset/css/bootstrap.min.css">
     <script src="./asset/js/bootstrap.bundle.min.js"></script>
+
 
     <!-- Custom styles for this template -->
     <link href="./asset/css/carousel.css" rel="stylesheet">
@@ -51,7 +80,7 @@ if (isset($_SESSION['fname'])) {
         <!-- Fixed navbar -->
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div class="container-fluid">
-                <img src="./asset/images/shashin_icon.png" height="50px" class="me-2">
+                <img src="./asset/images/shashin_icon.png" height="50px" class="me-2"/>
                 <a class="navbar-brand text-warning" style="font-size: 30px;" href="./index.php">SHASHIN</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -59,13 +88,13 @@ if (isset($_SESSION['fname'])) {
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./index.php">Home</a>
+                            <a class="nav-link" href="./index.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./product.php">Product</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./try_luck.php">Try Your Luck</a>
+                            <a class="nav-link active" aria-current="page" href="./try_luck.php">Try Your Luck</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./galery.php">Gallery</a>
@@ -111,124 +140,27 @@ if (isset($_SESSION['fname'])) {
         </nav>
     </header>
 
-    <main class="pt-3">
-        <div id="myCarousel" class="carousel slide mb-6 aspect-ratio-16x9" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active" style="background-image:url('./asset/images/lens.webp');">
-                    <div class="container">
-                        <div class="carousel-caption text-start">
-                            <h1>Best quality and affordable.</h1>
-                            <p class="opacity-75">There are demo units available for almost all types of cameras and lenses that you can try before you rent.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#products_list">Rental now</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item" style="background-image:url('./asset/images/camera.webp');">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1>Rent at a reasonable price.</h1>
-                            <p>After signin in, get some discount by playing a game.</p>
-                            <p><a class="btn btn-lg btn-primary" href="./try_luck.php">Try your luck</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item" style="background-image:url('./asset/images/strap.webp');">
-                    <div class="container">
-                        <div class="carousel-caption text-end">
-                            <h1>More than 50 years of experience.</h1>
-                            <p>Best camera rental shop in Indonesia and has handled so many clients throughout Indonesia</p>
-                            <p><a class="btn btn-lg btn-primary" href="./galery.php">Browse gallery</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+    <main class="p-5">
+        <div class="container_fluid p-3" style="display: <?php echo isset($isTr) && $isTr ? 'block' : 'none' ?>">
+            <h2 class="text-center">Transaction History</h2>
+            <p class="lead text-center">Click on of the card below, and get your discount. Good Luck!!</p>
+            <div></div>
+
+            <div class="b-example-divider"></div>
+            <?php  
+            if ($voucher === 'empty') {
+                $total_price = $total['hasil'];
+                echo "<div>WITHOUT DISCOUNT</div>";
+            } else {
+                $total_price = (100-(int)substr($voucher, 0, -1))*$total['hasil']/100;
+                echo "<div>WITH DISCOUNT: " . substr($voucher, 0, -1) . " %</div>";
+            }
+            echo "<div style=margin-bottom:100px;> " .$total_price. "</div>"
+            ?>
         </div>
-
-
-        <!-- Marketing messaging and featurettes
-        ================================================== -->
-        <!-- Wrap the rest of the page in another container to center all the content. -->
-
-        <div class="container marketing">
-            <hr class="featurette-divider" id="products_list">
-            <!-- Three columns of text below the carousel -->
-            <div class="row">
-                <div class="col-lg-4">
-                    <img src="./asset/images/menu_camera.webp" class="w-50">
-                    <h2 class="fw-normal">Camera Body</h2>
-                    <p>Check your favorite Camera Body</p>
-                    <p><a class="btn btn-warning" href="./product.php">View details &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-                <div class="col-lg-4">
-                    <img src="./asset/images/menu_lens.webp" class="w-50">
-                    <h2 class="fw-normal">Lens</h2>
-                    <p>Check your favorite Lens</p>
-                    <p><a class="btn btn-warning" href="./product_lens.php">View details &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-                <div class="col-lg-4">
-                    <img src="./asset/images/menu_accessories.webp" height="184px">
-                    <h2 class="fw-normal">Accessories</h2>
-                    <p>Check your camera accessories</p>
-                    <p><a class="btn btn-warning" href="./product_accessories.php">View details &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-            </div><!-- /.row -->
-
-
-            <!-- START THE FEATURETTES -->
-
-            <hr class="featurette-divider">
-
-            <div class="row featurette">
-                <div class="col-md-7">
-                    <h2 class="featurette-heading fw-normal lh-1">The word 'SHASHIN' is Japanese word, <span class="text-body-secondary">which means photo.</span></h2>
-                    <p class="lead">Provide the best service for those of you who need premium quality camera rental, diverse options, and affordable prices without having to buy.</p>
-                </div>
-                <div class="col-md-5">
-                    <img src="./asset/images/why_us_1.webp" width="500px">
-                </div>
-            </div>
-
-            <hr class="featurette-divider">
-
-            <div class="row featurette">
-                <div class="col-md-7 order-md-2">
-                    <h2 class="featurette-heading fw-normal lh-1">Demo units available for you to try. <span class="text-body-secondary">See for yourself.</span></h2>
-                    <p class="lead">Demo units are available for almost all types of cameras and lenses that you can try before you buy.</p>
-                </div>
-                <div class="col-md-5 order-md-1">
-                    <img src="./asset/images/why_us_2.webp" width="500px">
-                </div>
-            </div>
-
-            <hr class="featurette-divider">
-
-            <div class="row featurette">
-                <div class="col-md-7">
-                    <h2 class="featurette-heading fw-normal lh-1">And lastly, photography classes. <span class="text-body-secondary">For free.</span></h2>
-                    <p class="lead">For customers who want to learn photography, we provide Photography Workshops from basic to advanced levels supported by well-known brands such as Fujifilm, Nikon, Olympus, Panasonic, Sony, etc.</p>
-                </div>
-                <div class="col-md-5">
-                    <img src="./asset/images/why_us_3.webp" width="500px">
-                </div>
-            </div>
-
-            <hr class="featurette-divider">
-
-            <!-- /END THE FEATURETTES -->
-        </div><!-- /.container -->
+        <div class="container_fluid p-3 text-center vh-50" style="display: <?php echo !isset($isTr) || !$isTr ? 'block' : 'none' ?>;">
+            <h1 style="margin: 135px 0;">You do not have any transaction yet.</h1>
+        </div>
     </main>
 
 
@@ -246,7 +178,6 @@ if (isset($_SESSION['fname'])) {
                         <li class="nav-item mb-2"><a href="./galery.php" class="nav-link p-0 text-body-secondary">Gallery</a></li>
                     </ul>
                 </div>
-
 
                 <div class="col-6 col-md-3 mb-3">
                     <h5 class="border-bottom pb-3 text-body-emphasis">GET IN TOUCH WITH US</h5>
@@ -294,5 +225,88 @@ if (isset($_SESSION['fname'])) {
             </div>
         </footer>
     </div>
+
+    <script>
+        function uploadPOST(data1, data2) {
+            // Data you want to send to PHP
+
+            // Create an AJAX request
+            var xhr = new XMLHttpRequest();
+
+            // Configure the request
+            xhr.open("POST", "update_voucher_db.php", true);
+
+            // Set the content type
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            // Define the callback function
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                    // Request was successful, do something if needed
+                    console.log(xhr.responseText); // Response from PHP
+                }
+            };
+
+            // Construct the request body with both variables
+            var requestBody = "new_voucher=" + encodeURIComponent(data1) + "&is_define=" + encodeURIComponent(data2);
+
+            // Send the request with the data
+            xhr.send(requestBody);
+        }
+
+        function flipCard(card, order) {
+            // Array containing the numbers
+            const numbers = [5, 10, 15, 20, 25];
+
+            // Function to shuffle the array
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
+
+            // Shuffle the array
+            const shuffledNumbers = shuffleArray(numbers);
+
+            // Select the first 5 elements from the shuffled array
+            const selectedNumbers = shuffledNumbers.slice(0, 5);
+
+            console.log(selectedNumbers);
+
+            generated_discount = selectedNumbers[order - 1];
+
+            card_arr = document.getElementsByClassName("try_card");
+            header_arr = document.getElementsByClassName("header_try");
+            // console.log(card_arr);
+            for (idx in card_arr) {
+                card_arr[idx].textContent = selectedNumbers[idx] + "%";
+                if (idx == order - 1) {
+                    card_arr[idx].style.color = "red";
+                    header_arr[idx].style.display = "inline";
+                }
+            }
+
+            flip = document.getElementsByClassName("flip-card");
+            // console.log(flip);
+
+            for (elmt of flip) {
+                elmt.classList.toggle('flipped');
+
+                // disable onclick event
+                elmt.onclick = null;
+            }
+            // console.log('<?php echo $message;?>');
+            uploadPOST(generated_discount + "%", '<?php echo $message;?>');
+        }
+    </script>
+
+    <!-- for debugging -->
+    <script>
+        console.log("<?php echo $id; ?>");
+    </script>
+
 </body>
+
 </html>

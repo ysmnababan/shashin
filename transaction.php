@@ -26,16 +26,17 @@ if ($result_user->num_rows > 0) {
 // check user has any transaction history
 $sql_tr = "SELECT * FROM user_transaction WHERE user_id='$id'";
 $result_tr = $conn->query($sql_tr);
-if ($result_user->num_rows > 0) {
+if ($result_tr->num_rows > 0) {
     echo "wow";
     //count sum of price from transaction
-    $sql_sum = "SELECT sum(price) FROM user_transaction WHERE user_id = '$id'";
-    $total = $conn->query($sql_sum);
-    echo $result;
-
-} else {
+    $sql_sum = "SELECT sum(price) as hasil FROM user_transaction WHERE user_id = '$id'";
+    $temp = $conn->query($sql_sum);
+    $total = $temp->fetch_assoc();
+    print_r($total);
+    // echo "<div> " . substr($voucher, 0, -1) . "</div>";
     $isTr = true;
-
+} else {
+    $isTr = false;
 }
 ?>
 
@@ -140,21 +141,24 @@ if ($result_user->num_rows > 0) {
     </header>
 
     <main class="p-5">
-        <div class="container_fluid p-3" style="display: <?php echo isset($isTr) || $isTr ? 'block' : 'none' ?>">
+        <div class="container_fluid p-3" style="display: <?php echo isset($isTr) && $isTr ? 'block' : 'none' ?>">
             <h2 class="text-center">Transaction History</h2>
             <p class="lead text-center">Click on of the card below, and get your discount. Good Luck!!</p>
             <div></div>
 
             <div class="b-example-divider"></div>
             <?php  
-            if ($voucher == 'empty') {
-                $total_price = $total;
+            if ($voucher === 'empty') {
+                $total_price = $total['hasil'];
+                echo "<div>WITHOUT DISCOUNT</div>";
             } else {
-                $total_price = (100-(int)substr($voucher, 0, -1))*$total/100;
+                $total_price = (100-(int)substr($voucher, 0, -1))*$total['hasil']/100;
+                echo "<div>WITH DISCOUNT: " . substr($voucher, 0, -1) . " %</div>";
             }
+            echo "<div style=margin-bottom:100px;> " .$total_price. "</div>"
             ?>
         </div>
-        <div class="container_fluid p-3 text-center vh-50" style="display: <?php echo !isset($isTr) ? 'block' : 'none' ?>;">
+        <div class="container_fluid p-3 text-center vh-50" style="display: <?php echo !isset($isTr) || !$isTr ? 'block' : 'none' ?>;">
             <h1 style="margin: 135px 0;">You do not have any transaction yet.</h1>
         </div>
     </main>
